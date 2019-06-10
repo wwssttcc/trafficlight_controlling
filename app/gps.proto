@@ -1,0 +1,35 @@
+syntax = "proto2";
+
+package apollo.drivers;
+
+// X: 东 y:北  Z:天
+message Point3D {
+  optional double x = 1;
+  optional double y = 2;
+  optional double z = 3;
+}
+
+message PositionWGS84 {
+  optional int32 latitude = 1;
+  optional int32 longitude = 2;
+  optional int32 altitude = 3;
+}
+
+message CiDiGps {
+  // The time of pose measurement, seconds since the GPS epoch (Jan 6, 1980).
+  optional double gps_time = 1;
+
+  // The heading is zero when the car is facing East and positive when facing North.
+  // 弧度值，-3.14到3.14，东方为0度，逆时针是正
+  optional double heading = 2;
+
+  // position WGS84
+  optional PositionWGS84 position = 3;
+
+  // Linear velocity of the VRP in the map reference frame.
+  // East/north/up in meters per second.
+  optional Point3D linear_velocity = 4;
+  
+  // Standard deviation of position, east/north/up in meters.
+  optional Point3D position_std_dev = 5;
+}

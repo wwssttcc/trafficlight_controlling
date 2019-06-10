@@ -1,0 +1,1 @@
+cmd_/home/bzm/Project/app/trafficlight_controlling/hc595_drv/hc595_drv.ko := arm-poky-linux-gnueabi-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/bzm/Project/app/trafficlight_controlling/hc595_drv/hc595_drv.ko /home/bzm/Project/app/trafficlight_controlling/hc595_drv/hc595_drv.o /home/bzm/Project/app/trafficlight_controlling/hc595_drv/hc595_drv.mod.o
