@@ -1,6 +1,20 @@
 #ifndef _TL_CONTROLLING_H_
 #define _TL_CONTROLLING_H_
 
+#define NORMAL	1
+#define ONLINEG	2
+
+#define TSP_CONTROLL_INTERVAL_TIME	40
+#define TSP_CONTROLL_RESTORE_INTERVAL_TIME	4
+#define TSP_RESTORE_TIME 10
+
+typedef enum TspFunctionType {
+	kNormal = 1,
+	kDelay,
+	kCut,
+	kInsert,
+	kRestore,
+}TspFunctionType;
 
 typedef enum LightType{
 	yellow = 0,
@@ -25,8 +39,9 @@ typedef enum Toward{
 }Toward;
 
 typedef struct TrafficLight{
-	Direction	dir;
-	Toward	to;
+	unsigned char num;
+	Direction	dir[6];
+	Toward	to[6];
 	char id;
 	LightType	cur_status;
 	LightType	next_status;
@@ -44,10 +59,8 @@ typedef struct TrafficLight_Phase{
 	unsigned short last_time;
 	unsigned short time_count;
 	unsigned short run_time;
-	unsigned char workmode;
-	unsigned char num;
 }TrafficLight_Phase;
 
 int trafficlight_init();
-void TSP_controlling(char mode, char phase, char delay, char restore_phase);
+void TSP_controlling(char mode, short phase, short delay, short restore_phase);
 #endif

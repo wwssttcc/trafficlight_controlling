@@ -9,9 +9,10 @@ package tflightPackage;
 
 enum MsgType { 
 	tflightPBType = 0; 
-	CXSSCtrlInfoType = 1; 
-	TFLightCtrlInfoType = 2;
-	ServCtrlInfoType = 3;
+	TSPCtrlInfoType = 1;
+	DSTCtrlInfoType = 2;
+	TFLightCtrlInfoType = 3;
+	ServCtrlInfoType = 4;
 } 
 
 message BaseMsg{ 
@@ -34,16 +35,20 @@ message tflightPB {
     repeated TFmessage TF = 2;
 }
 
-message CXSSCtrlInfo {
+message TSPCtrlInfo {
 	required MsgType msg_type = 1; 
 	required bool vehicle_priority_enable = 2;
 	required uint32 priority_rule  = 3;
 	required uint32 curr_vehicle_phase = 4;
 	optional uint32 green_extend_time = 5;
 	required bool vehicle_passed_flag = 6;
-	required uint32 dst_status = 7;
-	required uint32 next_green_time = 8;
-	optional uint32 curr_green_time = 9;
+}
+
+message DSTCtrlInfo {
+	required MsgType msg_type = 1; 
+	required uint32 dst_status = 2;
+	repeated uint32 green_time_init = 3;
+	optional uint32 curr_green_time = 4;
 }
 
 message TFLightCtrlInfo {
@@ -57,8 +62,8 @@ message TFLightCtrlInfo {
 message ServCtrlInfo {
 	required MsgType msg_type = 1; 
 	required uint32 mode  = 2;					//normal, TSP, DST
-	required uint32 priority_rule  = 3;			//优先相应机制
-	required uint32 curr_vehicle_phase = 4;		//当前优先对应相位值
-	optional uint32 green_extend_time = 5;		//绿灯延长需要的时间
-	optional uint32 restore_phase = 6;			//恢复的相位值
+	required uint32 priority_rule  = 3;			//control mode
+	required uint32 curr_vehicle_phase = 4;		//current phase
+	optional uint32 green_extend_time = 5;		//green delay
+	optional uint32 restore_phase = 6;			//restore phase
 }

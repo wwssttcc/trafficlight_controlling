@@ -53,6 +53,11 @@ static void hc595_config(void)
 	else
 		gpio_direction_output(HC595_DS, 0);
 		
+	if(0 != gpio_request(HC595_MR, "hc595_mr"))
+		printk("hc595_drv: couldn't get hc595_mr gpio\n");
+	else
+		gpio_direction_output(HC595_MR, 1);
+		
 	
 	if(0 != gpio_request(HC595_OE1, "hc595_oe1"))
 		printk("hc595_drv: couldn't get hc595_oe1 gpio\n");
@@ -75,6 +80,11 @@ static void hc595_config(void)
 		printk("hc595_drv: couldn't get hc595_ds1 gpio\n");
 	else
 		gpio_direction_output(HC595_DS1, 0);
+		
+	if(0 != gpio_request(HC595_MR1, "hc595_mr1"))
+		printk("hc595_drv: couldn't get hc595_mr1 gpio\n");
+	else
+		gpio_direction_output(HC595_MR1, 1);
 }
 
 static int hc595_open(struct inode *inode, struct file *filp)
@@ -90,6 +100,9 @@ static ssize_t hc595_write(struct file *filp, const char __user *buf, size_t siz
 	unsigned char hc595_buf[6];
 	
 	memset(hc595_buf, 0, 6);
+	/* unlock */
+//	gpio_direction_output(HC595_OE, 0);
+	gpio_direction_output(HC595_OE1, 1);
 	ret = copy_from_user(hc595_buf, buf, size);
 	//for(i = 0; i < size; i++)
 	//	hc595_buf[i] = temp[5 - i];
@@ -101,12 +114,12 @@ static ssize_t hc595_write(struct file *filp, const char __user *buf, size_t siz
    		if(((hc595_buf[i/8] << (i%8)) & 0x80) == 0)
    		{
    			gpio_direction_output(HC595_DS, 0);
-   			gpio_direction_output(HC595_DS1, 1);
+   			gpio_direction_output(HC595_DS1, 0);
    		}
    		else
    		{
    			gpio_direction_output(HC595_DS, 1);
-   			gpio_direction_output(HC595_DS1, 0);
+   			gpio_direction_output(HC595_DS1, 1);
    		}
    		
    		gpio_direction_output(HC595_SHCP, 1);
@@ -117,6 +130,9 @@ static ssize_t hc595_write(struct file *filp, const char __user *buf, size_t siz
    gpio_direction_output(HC595_STCP1, 0);
    gpio_direction_output(HC595_STCP1, 1);
   
+  /* lock */
+//  gpio_direction_output(HC595_OE, 1);
+	gpio_direction_output(HC595_OE1, 0);
 
   //printk("hc165_drv: %02x %02x %02x %02x %02x\n", hc165_buf[0], hc165_buf[1], hc165_buf[2], hc165_buf[3], hc165_buf[4]) ;
 	return size;

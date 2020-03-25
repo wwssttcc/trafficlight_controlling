@@ -18,8 +18,7 @@ PROTOBUF_C__BEGIN_DECLS
 typedef struct _TflightPackage__BaseMsg TflightPackage__BaseMsg;
 typedef struct _TflightPackage__TFmessage TflightPackage__TFmessage;
 typedef struct _TflightPackage__TflightPB TflightPackage__TflightPB;
-typedef struct _TflightPackage__TSPCtrlInfo TflightPackage__TSPCtrlInfo;
-typedef struct _TflightPackage__DSTCtrlInfo TflightPackage__DSTCtrlInfo;
+typedef struct _TflightPackage__CXSSCtrlInfo TflightPackage__CXSSCtrlInfo;
 typedef struct _TflightPackage__TFLightCtrlInfo TflightPackage__TFLightCtrlInfo;
 typedef struct _TflightPackage__ServCtrlInfo TflightPackage__ServCtrlInfo;
 
@@ -28,10 +27,9 @@ typedef struct _TflightPackage__ServCtrlInfo TflightPackage__ServCtrlInfo;
 
 typedef enum _TflightPackage__MsgType {
   TFLIGHT_PACKAGE__MSG_TYPE__tflightPBType = 0,
-  TFLIGHT_PACKAGE__MSG_TYPE__TSPCtrlInfoType = 1,
-  TFLIGHT_PACKAGE__MSG_TYPE__DSTCtrlInfoType = 2,
-  TFLIGHT_PACKAGE__MSG_TYPE__TFLightCtrlInfoType = 3,
-  TFLIGHT_PACKAGE__MSG_TYPE__ServCtrlInfoType = 4
+  TFLIGHT_PACKAGE__MSG_TYPE__CXSSCtrlInfoType = 1,
+  TFLIGHT_PACKAGE__MSG_TYPE__TFLightCtrlInfoType = 2,
+  TFLIGHT_PACKAGE__MSG_TYPE__ServCtrlInfoType = 3
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(TFLIGHT_PACKAGE__MSG_TYPE)
 } TflightPackage__MsgType;
 
@@ -76,7 +74,7 @@ struct  _TflightPackage__TflightPB
     , TFLIGHT_PACKAGE__MSG_TYPE__tflightPBType, 0,NULL }
 
 
-struct  _TflightPackage__TSPCtrlInfo
+struct  _TflightPackage__CXSSCtrlInfo
 {
   ProtobufCMessage base;
   TflightPackage__MsgType msg_type;
@@ -86,25 +84,14 @@ struct  _TflightPackage__TSPCtrlInfo
   protobuf_c_boolean has_green_extend_time;
   uint32_t green_extend_time;
   protobuf_c_boolean vehicle_passed_flag;
-};
-#define TFLIGHT_PACKAGE__TSPCTRL_INFO__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&tflight_package__tspctrl_info__descriptor) \
-    , TFLIGHT_PACKAGE__MSG_TYPE__tflightPBType, 0, 0, 0, 0, 0, 0 }
-
-
-struct  _TflightPackage__DSTCtrlInfo
-{
-  ProtobufCMessage base;
-  TflightPackage__MsgType msg_type;
   uint32_t dst_status;
-  size_t n_green_time_init;
-  uint32_t *green_time_init;
+  uint32_t next_green_time;
   protobuf_c_boolean has_curr_green_time;
   uint32_t curr_green_time;
 };
-#define TFLIGHT_PACKAGE__DSTCTRL_INFO__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&tflight_package__dstctrl_info__descriptor) \
-    , TFLIGHT_PACKAGE__MSG_TYPE__tflightPBType, 0, 0,NULL, 0, 0 }
+#define TFLIGHT_PACKAGE__CXSSCTRL_INFO__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&tflight_package__cxssctrl_info__descriptor) \
+    , TFLIGHT_PACKAGE__MSG_TYPE__tflightPBType, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
 
 
 struct  _TflightPackage__TFLightCtrlInfo
@@ -130,20 +117,20 @@ struct  _TflightPackage__ServCtrlInfo
    */
   uint32_t mode;
   /*
-   *control mode
+   *优先相应机制
    */
   uint32_t priority_rule;
   /*
-   *current phase
+   *当前优先对应相位值
    */
   uint32_t curr_vehicle_phase;
   /*
-   *green delay
+   *绿灯延长需要的时间
    */
   protobuf_c_boolean has_green_extend_time;
   uint32_t green_extend_time;
   /*
-   *restore phase
+   *恢复的相位值
    */
   protobuf_c_boolean has_restore_phase;
   uint32_t restore_phase;
@@ -210,43 +197,24 @@ TflightPackage__TflightPB *
 void   tflight_package__tflight_pb__free_unpacked
                      (TflightPackage__TflightPB *message,
                       ProtobufCAllocator *allocator);
-/* TflightPackage__TSPCtrlInfo methods */
-void   tflight_package__tspctrl_info__init
-                     (TflightPackage__TSPCtrlInfo         *message);
-size_t tflight_package__tspctrl_info__get_packed_size
-                     (const TflightPackage__TSPCtrlInfo   *message);
-size_t tflight_package__tspctrl_info__pack
-                     (const TflightPackage__TSPCtrlInfo   *message,
+/* TflightPackage__CXSSCtrlInfo methods */
+void   tflight_package__cxssctrl_info__init
+                     (TflightPackage__CXSSCtrlInfo         *message);
+size_t tflight_package__cxssctrl_info__get_packed_size
+                     (const TflightPackage__CXSSCtrlInfo   *message);
+size_t tflight_package__cxssctrl_info__pack
+                     (const TflightPackage__CXSSCtrlInfo   *message,
                       uint8_t             *out);
-size_t tflight_package__tspctrl_info__pack_to_buffer
-                     (const TflightPackage__TSPCtrlInfo   *message,
+size_t tflight_package__cxssctrl_info__pack_to_buffer
+                     (const TflightPackage__CXSSCtrlInfo   *message,
                       ProtobufCBuffer     *buffer);
-TflightPackage__TSPCtrlInfo *
-       tflight_package__tspctrl_info__unpack
+TflightPackage__CXSSCtrlInfo *
+       tflight_package__cxssctrl_info__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data);
-void   tflight_package__tspctrl_info__free_unpacked
-                     (TflightPackage__TSPCtrlInfo *message,
-                      ProtobufCAllocator *allocator);
-/* TflightPackage__DSTCtrlInfo methods */
-void   tflight_package__dstctrl_info__init
-                     (TflightPackage__DSTCtrlInfo         *message);
-size_t tflight_package__dstctrl_info__get_packed_size
-                     (const TflightPackage__DSTCtrlInfo   *message);
-size_t tflight_package__dstctrl_info__pack
-                     (const TflightPackage__DSTCtrlInfo   *message,
-                      uint8_t             *out);
-size_t tflight_package__dstctrl_info__pack_to_buffer
-                     (const TflightPackage__DSTCtrlInfo   *message,
-                      ProtobufCBuffer     *buffer);
-TflightPackage__DSTCtrlInfo *
-       tflight_package__dstctrl_info__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data);
-void   tflight_package__dstctrl_info__free_unpacked
-                     (TflightPackage__DSTCtrlInfo *message,
+void   tflight_package__cxssctrl_info__free_unpacked
+                     (TflightPackage__CXSSCtrlInfo *message,
                       ProtobufCAllocator *allocator);
 /* TflightPackage__TFLightCtrlInfo methods */
 void   tflight_package__tflight_ctrl_info__init
@@ -297,11 +265,8 @@ typedef void (*TflightPackage__TFmessage_Closure)
 typedef void (*TflightPackage__TflightPB_Closure)
                  (const TflightPackage__TflightPB *message,
                   void *closure_data);
-typedef void (*TflightPackage__TSPCtrlInfo_Closure)
-                 (const TflightPackage__TSPCtrlInfo *message,
-                  void *closure_data);
-typedef void (*TflightPackage__DSTCtrlInfo_Closure)
-                 (const TflightPackage__DSTCtrlInfo *message,
+typedef void (*TflightPackage__CXSSCtrlInfo_Closure)
+                 (const TflightPackage__CXSSCtrlInfo *message,
                   void *closure_data);
 typedef void (*TflightPackage__TFLightCtrlInfo_Closure)
                  (const TflightPackage__TFLightCtrlInfo *message,
@@ -319,8 +284,7 @@ extern const ProtobufCEnumDescriptor    tflight_package__msg_type__descriptor;
 extern const ProtobufCMessageDescriptor tflight_package__base_msg__descriptor;
 extern const ProtobufCMessageDescriptor tflight_package__tfmessage__descriptor;
 extern const ProtobufCMessageDescriptor tflight_package__tflight_pb__descriptor;
-extern const ProtobufCMessageDescriptor tflight_package__tspctrl_info__descriptor;
-extern const ProtobufCMessageDescriptor tflight_package__dstctrl_info__descriptor;
+extern const ProtobufCMessageDescriptor tflight_package__cxssctrl_info__descriptor;
 extern const ProtobufCMessageDescriptor tflight_package__tflight_ctrl_info__descriptor;
 extern const ProtobufCMessageDescriptor tflight_package__serv_ctrl_info__descriptor;
 

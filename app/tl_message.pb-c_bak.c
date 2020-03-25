@@ -142,94 +142,49 @@ void   tflight_package__tflight_pb__free_unpacked
   assert(message->base.descriptor == &tflight_package__tflight_pb__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-void   tflight_package__tspctrl_info__init
-                     (TflightPackage__TSPCtrlInfo         *message)
+void   tflight_package__cxssctrl_info__init
+                     (TflightPackage__CXSSCtrlInfo         *message)
 {
-  static const TflightPackage__TSPCtrlInfo init_value = TFLIGHT_PACKAGE__TSPCTRL_INFO__INIT;
+  static const TflightPackage__CXSSCtrlInfo init_value = TFLIGHT_PACKAGE__CXSSCTRL_INFO__INIT;
   *message = init_value;
 }
-size_t tflight_package__tspctrl_info__get_packed_size
-                     (const TflightPackage__TSPCtrlInfo *message)
+size_t tflight_package__cxssctrl_info__get_packed_size
+                     (const TflightPackage__CXSSCtrlInfo *message)
 {
-  assert(message->base.descriptor == &tflight_package__tspctrl_info__descriptor);
+  assert(message->base.descriptor == &tflight_package__cxssctrl_info__descriptor);
   return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
 }
-size_t tflight_package__tspctrl_info__pack
-                     (const TflightPackage__TSPCtrlInfo *message,
+size_t tflight_package__cxssctrl_info__pack
+                     (const TflightPackage__CXSSCtrlInfo *message,
                       uint8_t       *out)
 {
-  assert(message->base.descriptor == &tflight_package__tspctrl_info__descriptor);
+  assert(message->base.descriptor == &tflight_package__cxssctrl_info__descriptor);
   return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
 }
-size_t tflight_package__tspctrl_info__pack_to_buffer
-                     (const TflightPackage__TSPCtrlInfo *message,
+size_t tflight_package__cxssctrl_info__pack_to_buffer
+                     (const TflightPackage__CXSSCtrlInfo *message,
                       ProtobufCBuffer *buffer)
 {
-  assert(message->base.descriptor == &tflight_package__tspctrl_info__descriptor);
+  assert(message->base.descriptor == &tflight_package__cxssctrl_info__descriptor);
   return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
 }
-TflightPackage__TSPCtrlInfo *
-       tflight_package__tspctrl_info__unpack
+TflightPackage__CXSSCtrlInfo *
+       tflight_package__cxssctrl_info__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data)
 {
-  return (TflightPackage__TSPCtrlInfo *)
-     protobuf_c_message_unpack (&tflight_package__tspctrl_info__descriptor,
+  return (TflightPackage__CXSSCtrlInfo *)
+     protobuf_c_message_unpack (&tflight_package__cxssctrl_info__descriptor,
                                 allocator, len, data);
 }
-void   tflight_package__tspctrl_info__free_unpacked
-                     (TflightPackage__TSPCtrlInfo *message,
+void   tflight_package__cxssctrl_info__free_unpacked
+                     (TflightPackage__CXSSCtrlInfo *message,
                       ProtobufCAllocator *allocator)
 {
   if(!message)
     return;
-  assert(message->base.descriptor == &tflight_package__tspctrl_info__descriptor);
-  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
-}
-void   tflight_package__dstctrl_info__init
-                     (TflightPackage__DSTCtrlInfo         *message)
-{
-  static const TflightPackage__DSTCtrlInfo init_value = TFLIGHT_PACKAGE__DSTCTRL_INFO__INIT;
-  *message = init_value;
-}
-size_t tflight_package__dstctrl_info__get_packed_size
-                     (const TflightPackage__DSTCtrlInfo *message)
-{
-  assert(message->base.descriptor == &tflight_package__dstctrl_info__descriptor);
-  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
-}
-size_t tflight_package__dstctrl_info__pack
-                     (const TflightPackage__DSTCtrlInfo *message,
-                      uint8_t       *out)
-{
-  assert(message->base.descriptor == &tflight_package__dstctrl_info__descriptor);
-  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
-}
-size_t tflight_package__dstctrl_info__pack_to_buffer
-                     (const TflightPackage__DSTCtrlInfo *message,
-                      ProtobufCBuffer *buffer)
-{
-  assert(message->base.descriptor == &tflight_package__dstctrl_info__descriptor);
-  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
-}
-TflightPackage__DSTCtrlInfo *
-       tflight_package__dstctrl_info__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data)
-{
-  return (TflightPackage__DSTCtrlInfo *)
-     protobuf_c_message_unpack (&tflight_package__dstctrl_info__descriptor,
-                                allocator, len, data);
-}
-void   tflight_package__dstctrl_info__free_unpacked
-                     (TflightPackage__DSTCtrlInfo *message,
-                      ProtobufCAllocator *allocator)
-{
-  if(!message)
-    return;
-  assert(message->base.descriptor == &tflight_package__dstctrl_info__descriptor);
+  assert(message->base.descriptor == &tflight_package__cxssctrl_info__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
 void   tflight_package__tflight_ctrl_info__init
@@ -540,7 +495,7 @@ const ProtobufCMessageDescriptor tflight_package__tflight_pb__descriptor =
   (ProtobufCMessageInit) tflight_package__tflight_pb__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor tflight_package__tspctrl_info__field_descriptors[6] =
+static const ProtobufCFieldDescriptor tflight_package__cxssctrl_info__field_descriptors[9] =
 {
   {
     "msg_type",
@@ -548,7 +503,7 @@ static const ProtobufCFieldDescriptor tflight_package__tspctrl_info__field_descr
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_ENUM,
     0,   /* quantifier_offset */
-    offsetof(TflightPackage__TSPCtrlInfo, msg_type),
+    offsetof(TflightPackage__CXSSCtrlInfo, msg_type),
     &tflight_package__msg_type__descriptor,
     NULL,
     0,             /* flags */
@@ -560,7 +515,7 @@ static const ProtobufCFieldDescriptor tflight_package__tspctrl_info__field_descr
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_BOOL,
     0,   /* quantifier_offset */
-    offsetof(TflightPackage__TSPCtrlInfo, vehicle_priority_enable),
+    offsetof(TflightPackage__CXSSCtrlInfo, vehicle_priority_enable),
     NULL,
     NULL,
     0,             /* flags */
@@ -572,7 +527,7 @@ static const ProtobufCFieldDescriptor tflight_package__tspctrl_info__field_descr
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT32,
     0,   /* quantifier_offset */
-    offsetof(TflightPackage__TSPCtrlInfo, priority_rule),
+    offsetof(TflightPackage__CXSSCtrlInfo, priority_rule),
     NULL,
     NULL,
     0,             /* flags */
@@ -584,7 +539,7 @@ static const ProtobufCFieldDescriptor tflight_package__tspctrl_info__field_descr
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT32,
     0,   /* quantifier_offset */
-    offsetof(TflightPackage__TSPCtrlInfo, curr_vehicle_phase),
+    offsetof(TflightPackage__CXSSCtrlInfo, curr_vehicle_phase),
     NULL,
     NULL,
     0,             /* flags */
@@ -595,8 +550,8 @@ static const ProtobufCFieldDescriptor tflight_package__tspctrl_info__field_descr
     5,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_UINT32,
-    offsetof(TflightPackage__TSPCtrlInfo, has_green_extend_time),
-    offsetof(TflightPackage__TSPCtrlInfo, green_extend_time),
+    offsetof(TflightPackage__CXSSCtrlInfo, has_green_extend_time),
+    offsetof(TflightPackage__CXSSCtrlInfo, green_extend_time),
     NULL,
     NULL,
     0,             /* flags */
@@ -608,74 +563,31 @@ static const ProtobufCFieldDescriptor tflight_package__tspctrl_info__field_descr
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_BOOL,
     0,   /* quantifier_offset */
-    offsetof(TflightPackage__TSPCtrlInfo, vehicle_passed_flag),
+    offsetof(TflightPackage__CXSSCtrlInfo, vehicle_passed_flag),
     NULL,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-};
-static const unsigned tflight_package__tspctrl_info__field_indices_by_name[] = {
-  3,   /* field[3] = curr_vehicle_phase */
-  4,   /* field[4] = green_extend_time */
-  0,   /* field[0] = msg_type */
-  2,   /* field[2] = priority_rule */
-  5,   /* field[5] = vehicle_passed_flag */
-  1,   /* field[1] = vehicle_priority_enable */
-};
-static const ProtobufCIntRange tflight_package__tspctrl_info__number_ranges[1 + 1] =
-{
-  { 1, 0 },
-  { 0, 6 }
-};
-const ProtobufCMessageDescriptor tflight_package__tspctrl_info__descriptor =
-{
-  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "tflightPackage.TSPCtrlInfo",
-  "TSPCtrlInfo",
-  "TflightPackage__TSPCtrlInfo",
-  "tflightPackage",
-  sizeof(TflightPackage__TSPCtrlInfo),
-  6,
-  tflight_package__tspctrl_info__field_descriptors,
-  tflight_package__tspctrl_info__field_indices_by_name,
-  1,  tflight_package__tspctrl_info__number_ranges,
-  (ProtobufCMessageInit) tflight_package__tspctrl_info__init,
-  NULL,NULL,NULL    /* reserved[123] */
-};
-static const ProtobufCFieldDescriptor tflight_package__dstctrl_info__field_descriptors[4] =
-{
-  {
-    "msg_type",
-    1,
-    PROTOBUF_C_LABEL_REQUIRED,
-    PROTOBUF_C_TYPE_ENUM,
-    0,   /* quantifier_offset */
-    offsetof(TflightPackage__DSTCtrlInfo, msg_type),
-    &tflight_package__msg_type__descriptor,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
     "dst_status",
-    2,
+    7,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT32,
     0,   /* quantifier_offset */
-    offsetof(TflightPackage__DSTCtrlInfo, dst_status),
+    offsetof(TflightPackage__CXSSCtrlInfo, dst_status),
     NULL,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "green_time_init",
-    3,
-    PROTOBUF_C_LABEL_REPEATED,
+    "next_green_time",
+    8,
+    PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_UINT32,
-    offsetof(TflightPackage__DSTCtrlInfo, n_green_time_init),
-    offsetof(TflightPackage__DSTCtrlInfo, green_time_init),
+    0,   /* quantifier_offset */
+    offsetof(TflightPackage__CXSSCtrlInfo, next_green_time),
     NULL,
     NULL,
     0,             /* flags */
@@ -683,41 +595,46 @@ static const ProtobufCFieldDescriptor tflight_package__dstctrl_info__field_descr
   },
   {
     "curr_green_time",
-    4,
+    9,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_UINT32,
-    offsetof(TflightPackage__DSTCtrlInfo, has_curr_green_time),
-    offsetof(TflightPackage__DSTCtrlInfo, curr_green_time),
+    offsetof(TflightPackage__CXSSCtrlInfo, has_curr_green_time),
+    offsetof(TflightPackage__CXSSCtrlInfo, curr_green_time),
     NULL,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
 };
-static const unsigned tflight_package__dstctrl_info__field_indices_by_name[] = {
-  3,   /* field[3] = curr_green_time */
-  1,   /* field[1] = dst_status */
-  2,   /* field[2] = green_time_init */
+static const unsigned tflight_package__cxssctrl_info__field_indices_by_name[] = {
+  8,   /* field[8] = curr_green_time */
+  3,   /* field[3] = curr_vehicle_phase */
+  6,   /* field[6] = dst_status */
+  4,   /* field[4] = green_extend_time */
   0,   /* field[0] = msg_type */
+  7,   /* field[7] = next_green_time */
+  2,   /* field[2] = priority_rule */
+  5,   /* field[5] = vehicle_passed_flag */
+  1,   /* field[1] = vehicle_priority_enable */
 };
-static const ProtobufCIntRange tflight_package__dstctrl_info__number_ranges[1 + 1] =
+static const ProtobufCIntRange tflight_package__cxssctrl_info__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 4 }
+  { 0, 9 }
 };
-const ProtobufCMessageDescriptor tflight_package__dstctrl_info__descriptor =
+const ProtobufCMessageDescriptor tflight_package__cxssctrl_info__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "tflightPackage.DSTCtrlInfo",
-  "DSTCtrlInfo",
-  "TflightPackage__DSTCtrlInfo",
+  "tflightPackage.CXSSCtrlInfo",
+  "CXSSCtrlInfo",
+  "TflightPackage__CXSSCtrlInfo",
   "tflightPackage",
-  sizeof(TflightPackage__DSTCtrlInfo),
-  4,
-  tflight_package__dstctrl_info__field_descriptors,
-  tflight_package__dstctrl_info__field_indices_by_name,
-  1,  tflight_package__dstctrl_info__number_ranges,
-  (ProtobufCMessageInit) tflight_package__dstctrl_info__init,
+  sizeof(TflightPackage__CXSSCtrlInfo),
+  9,
+  tflight_package__cxssctrl_info__field_descriptors,
+  tflight_package__cxssctrl_info__field_indices_by_name,
+  1,  tflight_package__cxssctrl_info__number_ranges,
+  (ProtobufCMessageInit) tflight_package__cxssctrl_info__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 static const ProtobufCFieldDescriptor tflight_package__tflight_ctrl_info__field_descriptors[5] =
@@ -913,23 +830,21 @@ const ProtobufCMessageDescriptor tflight_package__serv_ctrl_info__descriptor =
   (ProtobufCMessageInit) tflight_package__serv_ctrl_info__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCEnumValue tflight_package__msg_type__enum_values_by_number[5] =
+static const ProtobufCEnumValue tflight_package__msg_type__enum_values_by_number[4] =
 {
   { "tflightPBType", "TFLIGHT_PACKAGE__MSG_TYPE__tflightPBType", 0 },
-  { "TSPCtrlInfoType", "TFLIGHT_PACKAGE__MSG_TYPE__TSPCtrlInfoType", 1 },
-  { "DSTCtrlInfoType", "TFLIGHT_PACKAGE__MSG_TYPE__DSTCtrlInfoType", 2 },
-  { "TFLightCtrlInfoType", "TFLIGHT_PACKAGE__MSG_TYPE__TFLightCtrlInfoType", 3 },
-  { "ServCtrlInfoType", "TFLIGHT_PACKAGE__MSG_TYPE__ServCtrlInfoType", 4 },
+  { "CXSSCtrlInfoType", "TFLIGHT_PACKAGE__MSG_TYPE__CXSSCtrlInfoType", 1 },
+  { "TFLightCtrlInfoType", "TFLIGHT_PACKAGE__MSG_TYPE__TFLightCtrlInfoType", 2 },
+  { "ServCtrlInfoType", "TFLIGHT_PACKAGE__MSG_TYPE__ServCtrlInfoType", 3 },
 };
 static const ProtobufCIntRange tflight_package__msg_type__value_ranges[] = {
-{0, 0},{0, 5}
+{0, 0},{0, 4}
 };
-static const ProtobufCEnumValueIndex tflight_package__msg_type__enum_values_by_name[5] =
+static const ProtobufCEnumValueIndex tflight_package__msg_type__enum_values_by_name[4] =
 {
-  { "DSTCtrlInfoType", 2 },
-  { "ServCtrlInfoType", 4 },
-  { "TFLightCtrlInfoType", 3 },
-  { "TSPCtrlInfoType", 1 },
+  { "CXSSCtrlInfoType", 1 },
+  { "ServCtrlInfoType", 3 },
+  { "TFLightCtrlInfoType", 2 },
   { "tflightPBType", 0 },
 };
 const ProtobufCEnumDescriptor tflight_package__msg_type__descriptor =
@@ -939,9 +854,9 @@ const ProtobufCEnumDescriptor tflight_package__msg_type__descriptor =
   "MsgType",
   "TflightPackage__MsgType",
   "tflightPackage",
-  5,
+  4,
   tflight_package__msg_type__enum_values_by_number,
-  5,
+  4,
   tflight_package__msg_type__enum_values_by_name,
   1,
   tflight_package__msg_type__value_ranges,
